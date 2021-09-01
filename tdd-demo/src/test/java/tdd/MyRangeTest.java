@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class MyRangeTest {
 
     @Test
-    @DisplayName("Start with include [")
+    @DisplayName("start with include [")
     public void startWithInclude() {
         // Arrange
         MyRange myRange = new MyRange("[1,5]");
@@ -25,7 +25,7 @@ public class MyRangeTest {
     }
 
     @Test
-    @DisplayName("Start with exclude [")
+    @DisplayName("start with exclude [")
     public void startWithExclude() {
         // Arrange
         MyRange myRange = new MyRange("(1,5]");
@@ -38,7 +38,7 @@ public class MyRangeTest {
     }
 
     @Test
-    @DisplayName("[1,5] => 1")
+    @DisplayName("start with include number [1,5] => 1")
     public void startWithIncludeNumber() {
         // Arrange
         MyRange myRange = new MyRange("[1,5]");
@@ -51,7 +51,7 @@ public class MyRangeTest {
     }
 
     @Test
-    @DisplayName("(1,5] => 2")
+    @DisplayName("start with exclude number (1,5] => 2")
     public void startWithExcludeNumber() {
         // Arrange
         MyRange myRange = new MyRange("(1,5]");
@@ -152,5 +152,18 @@ public class MyRangeTest {
 
         // Assert
         assertEquals("2,3,4,5", String.join(",", result));
+    }
+
+    @Test
+    @DisplayName("case 08 [1,5) => 1,2,3,4")
+    public void case08() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5)");
+
+        // Act
+        List<String> result = myRange.getResult();
+
+        // Assert
+        assertEquals("1,2,3,4", String.join(",", result));
     }
 }
