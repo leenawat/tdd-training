@@ -127,4 +127,17 @@ public class MyRangeTest {
         // Assert
         assertEquals("1,2,3,4,5", String.join(",", result));
     }
+
+    @Test
+    @DisplayName("case 06 (1,5) => 2,3,4")
+    public void case06() {
+        // Arrange
+        MyRange myRange = new MyRange("(1,5)");
+
+        // Act
+        List<String> result = myRange.getResult();
+
+        // Assert
+        assertEquals("2,3,4", String.join(",", result));
+    }
 }
