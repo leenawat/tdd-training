@@ -36,6 +36,11 @@ public class MyRange {
 
         String[] listString = numberStr.split(",");
 
-        return Integer.parseInt(listString[1]);
+        int endNumber = Integer.parseInt(listString[1]);
+
+        if (!endWithInclude()) {
+            endNumber -= 1;
+        }
+        return endNumber;
     }
 }

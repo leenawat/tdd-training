@@ -99,4 +99,17 @@ public class MyRangeTest {
         // Assert
         assertEquals(5, endNumber);
     }
+
+    @Test
+    @DisplayName("end with exclude [1,5) => 4")
+    public void endWithExcludeNumber() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5)");
+
+        // Act
+        int endNumber = myRange.getEndNumber();
+
+        // Assert
+        assertEquals(4, endNumber);
+    }
 }
