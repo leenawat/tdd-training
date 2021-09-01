@@ -27,4 +27,11 @@ public class MyRange {
         return startNumber;
     }
 
+    public int getEndNumber() {
+        String numberStr = input.substring(1, input.length() - 1);
+
+        String[] listString = numberStr.split(",");
+
+        return Integer.parseInt(listString[1]);
+    }
 }

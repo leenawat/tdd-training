@@ -60,4 +60,17 @@ public class MyRangeTest {
         // Assert
         assertEquals(2, startNumber);
     }
+
+    @Test
+    @DisplayName("end with include [1,5] => 5")
+    public void endWithIncludeNumber() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5]");
+
+        // Act
+        int endNumber = myRange.getEndNumber();
+
+        // Assert
+        assertEquals(5, endNumber);
+    }
 }
