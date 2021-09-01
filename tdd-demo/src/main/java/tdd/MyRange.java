@@ -12,6 +12,10 @@ public class MyRange {
         return input.startsWith("[");
     }
 
+    public boolean endWithInclude() {
+        return input.endsWith("]");
+    }
+
     public int getStartNumber() {
         String numberStr = input.substring(1, input.length() - 1);
         // String startString = input.substring(0, 1);
