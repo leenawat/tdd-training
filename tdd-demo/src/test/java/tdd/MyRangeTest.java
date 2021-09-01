@@ -63,7 +63,7 @@ public class MyRangeTest {
 
     @Test
     @DisplayName("end with include ]")
-    public void endWithExcludeNumber() {
+    public void endWithInclude() {
         // Arrange
         MyRange myRange = new MyRange("[1,5]");
 
@@ -72,6 +72,19 @@ public class MyRangeTest {
 
         // Assert
         assertTrue(endWithInclude);
+    }
+
+    @Test
+    @DisplayName("end with exclude ]")
+    public void endWithExclude() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5)");
+
+        // Act
+        boolean endWithInclude = myRange.endWithInclude();
+
+        // Assert
+        assertFalse(endWithInclude);
     }
 
     @Test
