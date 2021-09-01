@@ -21,6 +21,9 @@ public class MyRange {
 
         int startNumber = Integer.parseInt(listString[0]);
         // Integer endNumber = Integer.parseInt(listString[1]);
+        if (!startWithInclude()) {
+            startNumber += 1;
+        }
         return startNumber;
     }
 

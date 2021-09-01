@@ -47,4 +47,17 @@ public class MyRangeTest {
         // Assert
         assertEquals(1, startNumber);
     }
+
+    @Test
+    @DisplayName("(1,5] => 2")
+    public void startWithExcludeNumber() {
+        // Arrange
+        MyRange myRange = new MyRange("(1,5]");
+
+        // Act
+        int startNumber = myRange.getStartNumber();
+
+        // Assert
+        assertEquals(2, startNumber);
+    }
 }
