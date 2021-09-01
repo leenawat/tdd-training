@@ -1,6 +1,7 @@
 package tdd;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.DisplayName;
@@ -32,5 +33,18 @@ public class MyRangeTest {
 
         // Assert
         assertFalse(startWithInclude);
+    }
+
+    @Test
+    @DisplayName("[1,5] => 1")
+    public void startWithIncludeNumber() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5]");
+
+        // Act
+        int startNumber = myRange.getStartNumber();
+
+        // Assert
+        assertEquals(1, startNumber);
     }
 }

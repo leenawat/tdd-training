@@ -12,4 +12,16 @@ public class MyRange {
         return input.startsWith("[");
     }
 
+    public int getStartNumber() {
+        String numberStr = input.substring(1, input.length() - 1);
+        // String startString = input.substring(0, 1);
+        // String endString = input.substring(input.length() - 1, input.length());
+
+        String[] listString = numberStr.split(",");
+
+        int startNumber = Integer.parseInt(listString[0]);
+        // Integer endNumber = Integer.parseInt(listString[1]);
+        return startNumber;
+    }
+
 }
