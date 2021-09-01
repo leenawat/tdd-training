@@ -1,5 +1,8 @@
 package tdd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyRange {
 
     private final String input;
@@ -42,5 +45,15 @@ public class MyRange {
             endNumber -= 1;
         }
         return endNumber;
+    }
+
+    public List<String> getResult() {
+
+        List<String> result = new ArrayList<>();
+        for (int i = getStartNumber(); i <= getEndNumber(); i++) {
+            result.add(i + "");
+        }
+
+        return result;
     }
 }

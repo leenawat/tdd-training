@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -111,5 +113,18 @@ public class MyRangeTest {
 
         // Assert
         assertEquals(4, endNumber);
+    }
+
+    @Test
+    @DisplayName("case 05 [1,5] => 1,2,3,4,5")
+    public void case05() {
+        // Arrange
+        MyRange myRange = new MyRange("[1,5]");
+
+        // Act
+        List<String> result = myRange.getResult();
+
+        // Assert
+        assertEquals("1,2,3,4,5", String.join(",", result));
     }
 }
