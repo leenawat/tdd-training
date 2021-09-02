@@ -9,6 +9,10 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     public ProductResponse getProductDetail(@PathVariable String id) {
-        return new ProductResponse();
+        ProductResponse productResponse = new ProductResponse();
+        productResponse.setId(1);
+        productResponse.setProductName("พัดลม");
+        productResponse.setPrice(1200.00);
+        return productResponse;
     }
 }
