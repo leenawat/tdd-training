@@ -16,13 +16,21 @@ class ProductControllerSpringBootTest {
 
     @Test
     void exampleTest() {
+        ProductResponse expected = new ProductResponse();
+        expected.setId(1);
+        expected.setProductName("พัดลม");
+        expected.setPrice(1200);
+
         // 2. call to /products/1
         ProductResponse productResponse = restTemplate.getForObject("/products/1", ProductResponse.class);
 
         // 3. Assert result with expected result
-        assertEquals(1, productResponse.getId());
-        assertEquals("พัดลม", productResponse.getProductName());
-        assertEquals(1200.00, productResponse.getPrice());
+        assertEquals(expected.getId(), productResponse.getId());
+        assertEquals(expected.getProductName(), productResponse.getProductName());
+        assertEquals(expected.getPrice(), productResponse.getPrice());
+
+        assertEquals(expected, productResponse);
+
     }
 
 }

@@ -1,13 +1,9 @@
 package com.example.myapi.product;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Objects;
 
-@JsonPropertyOrder({
-        "id",
-        "product_name",
-        "price"
-})
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ProductResponse {
 
     @JsonProperty("id")
@@ -17,7 +13,7 @@ public class ProductResponse {
     private String productName;
 
     @JsonProperty("price")
-    private Double price;
+    private Integer price;
 
     public Integer getId() {
         return id;
@@ -35,12 +31,30 @@ public class ProductResponse {
         this.productName = productName;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, price, productName);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ProductResponse other = (ProductResponse) obj;
+        return Objects.equals(id, other.id) && Objects.equals(price, other.price)
+                && Objects.equals(productName, other.productName);
     }
 
 }
