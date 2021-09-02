@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/products/{id}")
     public ProductResponse getProductDetail(@PathVariable String id) {
-        ProductResponse productResponse = new ProductResponse();
-        productResponse.setId(Integer.parseInt(id));
-        productResponse.setProductName("พัดลม");
-        productResponse.setPrice(1200);
-        return productResponse;
+        return productService.getProductDetail(Integer.parseInt(id));
     }
 }
