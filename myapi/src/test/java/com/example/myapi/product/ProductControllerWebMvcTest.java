@@ -22,6 +22,9 @@ public class ProductControllerWebMvcTest {
     @MockBean
     private ProductService productService;
 
+    @MockBean
+    private ProductRepository productRepository;
+
     @Test
     void getProductDetail() throws Exception {
 

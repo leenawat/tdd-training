@@ -1,0 +1,1 @@
+insert into product values(2, 'พัดลม', 1200);
