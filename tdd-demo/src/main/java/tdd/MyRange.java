@@ -48,12 +48,15 @@ public class MyRange {
     }
 
     public List<String> getResult() {
-
         List<String> result = new ArrayList<>();
         for (int i = getStartNumber(); i <= getEndNumber(); i++) {
             result.add(i + "");
         }
 
         return result;
+    }
+
+    public void validateInput() {
+        throw new RuntimeException();
     }
 }
