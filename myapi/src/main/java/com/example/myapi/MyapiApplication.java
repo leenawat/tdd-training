@@ -1,11 +1,29 @@
 package com.example.myapi;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.example.myapi.product.Product;
+import com.example.myapi.product.ProductRepository;
+
 @SpringBootApplication
 public class MyapiApplication {
+
+    @Autowired
+    ProductRepository productRepository;
+
+    @PostConstruct
+    public void initialData() {
+        productRepository.save(Product
+                .builder()
+                .name("fan")
+                .price(888)
+                .build());
+    }
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(MyapiApplication.class, args);
